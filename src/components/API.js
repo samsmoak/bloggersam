@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-	baseURL: "https://samblogapp.herokuapp.com/api/",
+	baseURL: "https://bloggersam.herokuapp.com/api/",
 	withCredentials: false,
 	headers: {
 		"Access-Control-Allow-Origin": "*",

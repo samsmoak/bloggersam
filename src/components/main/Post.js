@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
+import API from "../API";
 
 function Post({ post }) {
 	const PF = "http://localhost:5000/images/";
+	const { url } = API.get("s3Url", async (req, res) => {
+		await res.json();
+	});
 	return (
 		<div className='shadow-2xl rounded-lg border-b-2 hover:border-black '>
 			<div className='   w-small2  '>
 				<div className='h-80 w-full px-2 flex justify-center   overflow-hidden'>
 					{post.photo && (
-						<img src={PF + post.photo} alt='' className='h-80 w-small2  ' />
+						<img src={url + post.photo} alt='' className='h-80 w-small2  ' />
 					)}
 				</div>
 				<div className='py-4 space-y-2 px-3'>

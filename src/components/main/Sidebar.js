@@ -10,6 +10,9 @@ function Sidebar() {
 	const [cats, setCat] = useState([]);
 	const { user, dispatch } = useContext(Context);
 	const PF = "http://localhost:5000/images/";
+	const { url } = API.get("s3Url", async (req, res) => {
+		await res.json();
+	});
 	useEffect(() => {
 		const getCats = async () => {
 			const res = await API.get("/categories");
@@ -27,7 +30,7 @@ function Sidebar() {
 				<div className='w-full flex justify-center mt-6 mb-4'>
 					<div className='h-52 w-52 bg-paper-200 rounded-full overflow-hidden '>
 						<img
-							src={user && PF + user.profilePic}
+							src={user && url + user.profilePic}
 							alt=''
 							className='w-52 h-52 object-cover'
 						/>

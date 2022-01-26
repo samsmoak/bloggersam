@@ -12,9 +12,13 @@ function Write() {
 	const [file, setFile] = useState(null);
 	const [desc, setDesc] = useState("");
 	const { user } = useContext(Context);
-
+	const { url } = API.get("/s3Url", async (req, res) => {
+		await res.json();
+	});
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		// const { url } = await fetch("/api/s3Url").then((res) => res.json());
+
 		const newPost = {
 			username: user.username,
 			title,
@@ -28,7 +32,7 @@ function Write() {
 			newPost.photo = filename;
 
 			try {
-				await API.post("/imagesbuc", data);
+				await API.post(url, data);
 			} catch (err) {}
 		}
 		try {

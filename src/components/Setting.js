@@ -14,6 +14,10 @@ function Setting() {
 	const [success, setSuccess] = useState(false);
 	const PF = "http://localhost:5000/images/";
 
+	const { url } = API.get("s3Url", async (req, res) => {
+		await res.json();
+	});
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		dispatch({ type: "UPDATE_START" });
@@ -31,7 +35,7 @@ function Setting() {
 			updatedUser.profilePic = filename;
 
 			try {
-				await API.post("/imagesbuc", data);
+				await API.post("/s3Url", data);
 			} catch (err) {}
 		}
 		try {
@@ -66,7 +70,7 @@ function Setting() {
 								<div className='w-34 h-56   rounded-full bg-greener-600 overflow-hidden'>
 									<img
 										src={
-											file ? URL.createObjectURL(file) : PF + user.profilePic
+											file ? URL.createObjectURL(file) : url + user.profilePic
 										}
 										alt=''
 										className='h-56 w-56 object-cover  '

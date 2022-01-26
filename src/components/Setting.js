@@ -13,6 +13,7 @@ function Setting() {
 	const [username, setUsername] = useState("");
 	const [success, setSuccess] = useState(false);
 	const PF = "http://localhost:5000/images/";
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		dispatch({ type: "UPDATE_START" });
@@ -30,7 +31,7 @@ function Setting() {
 			updatedUser.profilePic = filename;
 
 			try {
-				await API.post("/upload", data);
+				await API.post("/imagesbuc", data);
 			} catch (err) {}
 		}
 		try {

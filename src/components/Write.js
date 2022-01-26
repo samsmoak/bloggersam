@@ -28,7 +28,7 @@ function Write() {
 			newPost.photo = filename;
 
 			try {
-				await API.post("/upload", data);
+				await API.post("/imagesbuc", data);
 			} catch (err) {}
 		}
 		try {

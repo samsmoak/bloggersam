@@ -5,6 +5,7 @@ import { Context } from "../context/Context";
 function Navigation() {
 	const { user, dispatch } = useContext(Context);
 	const PF = "http://localhost:5000/images/";
+	// const PF2 = "http://localhost:5000/imagesbuc/:key/";
 	const handleLogout = () => {
 		dispatch({ type: "LOGOUT" });
 	};

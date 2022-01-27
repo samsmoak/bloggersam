@@ -11,7 +11,7 @@ function Sidebar() {
 	const { user, dispatch } = useContext(Context);
 	const PF = "http://localhost:5000/images/";
 	const { url } = API.get("s3Url", async (req, res) => {
-		await res.json();
+		return await res.json();
 	});
 	useEffect(() => {
 		const getCats = async () => {

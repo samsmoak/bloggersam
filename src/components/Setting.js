@@ -15,7 +15,7 @@ function Setting() {
 	const PF = "http://localhost:5000/images/";
 
 	const { url } = API.get("s3Url", async (req, res) => {
-		await res.json();
+		return await res.json();
 	});
 
 	const handleSubmit = async (e) => {

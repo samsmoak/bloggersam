@@ -13,7 +13,7 @@ function Write() {
 	const [desc, setDesc] = useState("");
 	const { user } = useContext(Context);
 	const { url } = API.get("/s3Url", async (req, res) => {
-		await res.json();
+		return await res.json();
 	});
 	const handleSubmit = async (e) => {
 		e.preventDefault();

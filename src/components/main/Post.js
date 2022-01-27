@@ -6,7 +6,7 @@ import API from "../API";
 function Post({ post }) {
 	const PF = "http://localhost:5000/images/";
 	const { url } = API.get("s3Url", async (req, res) => {
-		await res.json();
+		return await res.json();
 	});
 	return (
 		<div className='shadow-2xl rounded-lg border-b-2 hover:border-black '>
